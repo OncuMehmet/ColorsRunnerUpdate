@@ -6,9 +6,18 @@
             "id": "0ab2207a-5773-434d-ae64-6705d8661ce4",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "MouseDelta",
+                    "type": "Value",
                     "id": "153b8e68-66b0-4eec-8450-3d96b1f1a9ac",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseLeftButton",
+                    "type": "Button",
+                    "id": "4f3aa45e-1961-43a3-a1a3-6e333ff95f7f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -17,13 +26,46 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "29c92c5a-7b2e-4011-ae24-7d4710dccd74",
-                    "path": "",
+                    "name": "One Modifier",
+                    "id": "67a478ba-0ca1-4630-a67c-d1410a09986e",
+                    "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "MouseDelta",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0cc5ca86-b975-49c0-bbaa-9253aca972d9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "f1588b7d-629c-4cfe-a2d3-3b39278b40cb",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a8f803ff-fa7b-41c1-a0fc-b445f7083e47",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseLeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -34,24 +76,24 @@
             "id": "f9c00403-475a-4fc7-8b80-f89f0211c837",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "JoyStick",
+                    "type": "Value",
                     "id": "7221f6e3-3115-403b-b632-484589a96b16",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "fac25471-b1e9-4ca8-8d09-d2b52218086c",
-                    "path": "",
+                    "path": "<AndroidJoystick>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "JoyStick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
