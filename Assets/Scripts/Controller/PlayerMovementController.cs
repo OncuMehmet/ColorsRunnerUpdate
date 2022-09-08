@@ -33,6 +33,11 @@ public class PlayerMovementController : MonoBehaviour
         _movementData = playerMovementData;
     }
 
+    public void EnableMovement()
+    {
+        _isReadyToMove = true;
+        _isReadyToPlay = true;
+    }
 
     public void UpdateRunnerInputValue(RunnerHorizontalInputParams inputParam)
     {
