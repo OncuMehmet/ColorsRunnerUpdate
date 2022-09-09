@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Self Variables
+    #region Serialized Variables
+    [SerializeField]
+    private Animator animator;
+    #endregion
+    #endregion
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeAnimation(PlayerAnimationTypes _animationType)
     {
-        
+        if (_animationType == PlayerAnimationTypes.Run)
+        {
+            animator.Play("Running");
+        }
+        else
+        {
+            animator.SetTrigger(_animationType.ToString());
+
+        }
     }
 }

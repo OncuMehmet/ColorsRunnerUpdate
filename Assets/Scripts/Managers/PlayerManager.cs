@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerManager : MonoBehaviour
 {
     #region Self Variables
 
     #region Public Variables
 
-    //public float CurrentScore;
+    public float CurrentScore;
 
     #endregion
 
@@ -42,6 +43,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         Data = GetPlayerData();
+        SendPlayerDataToMovementController();
     }
     private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").PlayerData;
 
@@ -88,6 +90,10 @@ public class PlayerManager : MonoBehaviour
         InputSignals.Instance.onSidewaysEnable -= OnSidewaysEnable;
     }
 
+    private void SendPlayerDataToMovementController() //BAKACAM BUNA TEKRAR
+    {
+        playerMovementController.SetMovementData(Data.PlayerMovementData);
+    }
     private void OnPlay()
     {
         playerMovementController.EnableMovement();
@@ -120,10 +126,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    //public void OnChangeVerticalSpeed(float _verticalSpeed) Büyük ihtimal kullanýlmýycak
-    //{
-    //    playerMovementController.ChangeVerticalMovement(_verticalSpeed);
-    //}
+    public void OnChangeVerticalSpeed(float _verticalSpeed) 
+    {
+        playerMovementController.ChangeVerticalMovement(_verticalSpeed);
+    }
 
     public void OnSidewaysEnable(bool isSidewayEnable)
     {
@@ -145,7 +151,16 @@ public class PlayerManager : MonoBehaviour
       //  ChangeAnimation(PlayerAnimationTypes.Idle);
     }
 
-    public void OnIncreaseSize()
+    public void StopVerticalMovement()
+    {
+        playerMovementController.ChangeVerticalMovement(0);
+    }
+    public void EnableVerticalMovement()
+    {
+        playerMovementController.ChangeVerticalMovement(10);
+    }
+
+    public void OnIncreaseSize()//
     {
         playerMeshController.IncreasePlayerSize();
     }
@@ -171,6 +186,22 @@ public class PlayerManager : MonoBehaviour
         }
 
     }
+    public void RepositionPlayerForDrone(GameObject _other)
+    {
+        playerMovementController.RepositionPlayerForDrone(_other);
+    }
+    public void ActivateMesh()
+    {
+       // NewCameraSignals.Instance.onChangeCameraState.Invoke(CameraStates.StartOfIdle);
+        playerMeshController.ActiveMesh();
+    }
+
+    public void ChangeAnimation(PlayerAnimationTypes _animationType)
+    {
+        playerAnimationController.ChangeAnimation(_animationType);
+    }
+
+
     public void CloseScoreText(bool _visiblitystate)
     {
       //  playerTextController.CloseScoreText(_visiblitystate);

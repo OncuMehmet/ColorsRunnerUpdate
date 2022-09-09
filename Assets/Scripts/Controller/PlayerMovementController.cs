@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -150,15 +151,15 @@ public class PlayerMovementController : MonoBehaviour
         _isReadyToPlay = true;
         _sidewaysEnable = true;
     }
-    //public void RepositionPlayerForDrone(GameObject _other) //BUNA BAKICAM
-    //{
-    //    transform.DOMove(new Vector3(_other.transform.position.x, transform.position.y, _other.transform.position.z + _other.transform.localScale.z * 2), 2f);
-    //}
+    public void ChangeVerticalMovement(float _verticalSpeed) 
+    {
+        _movementData.ForwardSpeed = _verticalSpeed;
+    }
 
-    //public void ChangeVerticalMovement(float _verticalSpeed) //GEREK YOK GÝBÝ
-    //{
-    //    _movementData.ForwardSpeed = _verticalSpeed;
-    //}
+    public void RepositionPlayerForDrone(GameObject _other) 
+    {
+        transform.DOMove(new Vector3(_other.transform.position.x, transform.position.y, _other.transform.position.z + _other.transform.localScale.z * 2), 2f);
+    }
     
     //public void DisableStopVerticalMovement()
     //{
