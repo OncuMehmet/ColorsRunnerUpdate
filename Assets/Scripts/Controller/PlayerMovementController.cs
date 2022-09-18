@@ -14,7 +14,8 @@ public class PlayerMovementController : MonoBehaviour
     #endregion
     #region Serialized Variables
     [SerializeField] private new Rigidbody rigidbody;
-   //[SerializeField] private PlayerManager playerManager;
+    [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private Transform playerMesh;
     #endregion
 
     #region Private Variables
@@ -113,12 +114,12 @@ public class PlayerMovementController : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(_inputValueX * _movementData.ForwardSpeed, velocity.y,
                 _inputValueZ * _movementData.ForwardSpeed));
-          //  playerManager.ChangeAnimation(PlayerAnimationTypes.Run);
+            playerManager.ChangeAnimation(PlayerAnimationTypes.Run);
             transform.rotation = toRotation;
         }
         else
         {
-           // playerManager.ChangeAnimation(PlayerAnimationTypes.Idle);
+            playerManager.ChangeAnimation(PlayerAnimationTypes.Idle);
         }
     }
     public void SetSidewayEnabled(bool isSidewayEnabled)

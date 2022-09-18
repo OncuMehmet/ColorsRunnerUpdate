@@ -12,6 +12,7 @@ public class CoreGameSignals : MonoSingleton<CoreGameSignals>
     public UnityAction onLevelSuccessful = delegate { };
     public UnityAction onLevelFailed = delegate { };
     public UnityAction onGameInitLevel = delegate { };
+    public UnityAction onGameInit = delegate { };
 
 
 

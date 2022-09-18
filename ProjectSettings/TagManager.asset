@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collectable
+  - Collected
+  - Obstacle
+  - Portal
+  - TurretAreaGround
+  - JumpArea
+  - DroneArea
+  - ColoredGround
+  - DroneAreaPhysics
+  - Roulette
+  - Market
   layers:
   - Default
   - TransparentFX

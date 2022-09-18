@@ -11,7 +11,7 @@ public class StackManager : MonoBehaviour
     [SerializeField]
     private GameObject collectablePrefab;
     [SerializeField]
-    private int initAmount = 4; //bakýcam
+    private int initAmount = 4;
     [SerializeField]
     private List<GameObject> stackList;
     [SerializeField]
@@ -81,10 +81,10 @@ public class StackManager : MonoBehaviour
                Mathf.Lerp(stackList[0].transform.position.y, _playerManager.transform.position.y, .2f),
                Mathf.Lerp(stackList[0].transform.position.z, _playerManager.transform.position.z - .8f, .2f));
                 Quaternion _toPlayerRotation = Quaternion.LookRotation(_playerManager.transform.position - stackList[0].transform.position);
-                //_toPlayerRotation = Quaternion.Euler(0,_toPlayerRotation.eulerAngles.y,0);
+               
                 stackList[0].transform.rotation = Quaternion.Slerp(_playerManager.transform.rotation, _toPlayerRotation, 1f);
             }
-            // stackList[0].transform.position = _playerManager.position;
+           
 
             if (stackList.Count > 1)
             {
@@ -153,7 +153,7 @@ public class StackManager : MonoBehaviour
         {
             var _gameObject = Instantiate(collectablePrefab, Vector3.back * i, Quaternion.identity);
             OnIncreaseStack(_gameObject);
-          //_gameObject.GetComponent<CollectableManager>().ChangeAnimationOnController(CollectableAnimationTypes.Crouch);
+           _gameObject.GetComponent<CollectableManager>().ChangeAnimationOnController(CollectableAnimationTypes.Crouch);
         }
 
 

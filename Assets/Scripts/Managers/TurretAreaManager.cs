@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class TurretAreaManager : MonoBehaviour
 {
     #region Self Region
@@ -17,7 +20,8 @@ public class TurretAreaManager : MonoBehaviour
     #region Private Variables
 
     private List<GameObject> _targetList = new List<GameObject>();
-    //private TurretStates _turretState;
+    private TurretStates _turretState;
+    
 
     #endregion
 
@@ -29,11 +33,7 @@ public class TurretAreaManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void KillFromTargetList()
     {
@@ -50,5 +50,10 @@ public class TurretAreaManager : MonoBehaviour
             //}
         }
 
+    }
+    public void AddTargetToList(GameObject _other)
+    {
+        _targetList.Add(_other);
+       // ChangeTurretState(TurretStates.Warned);
     }
 }

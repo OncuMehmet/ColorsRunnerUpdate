@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 
 
@@ -20,14 +21,14 @@ public class CollectableManager : MonoBehaviour
 
     #region Serialized Variables
 
-    //[SerializeField]
-    //private CollectableMovementCommand movementCommand;
+    [SerializeField]
+    private CollectableMovementCommand movementCommand;
     [SerializeField]
     private CollectableMeshController collectableMeshController;
-    //[SerializeField]
-    //private CollectablePhysicsController collectablePhysicsController;
-    //[SerializeField]
-    //private CollectableAnimationController collectableAnimationController;
+    [SerializeField]
+    private CollectablePhysicsController collectablePhysicsController;
+    [SerializeField]
+    private CollectableAnimationController collectableAnimationController;
     [SerializeField]
     private CapsuleCollider collider;
     #endregion
@@ -35,6 +36,11 @@ public class CollectableManager : MonoBehaviour
 
     #endregion
 
+
+    private void Awake()
+    {
+        ChangeColor(CurrentColorType);
+    }
 
 
     public void IncreaseStack()
@@ -45,7 +51,7 @@ public class CollectableManager : MonoBehaviour
 
     public void ChangeAnimationOnController(CollectableAnimationTypes _currentAnimation)
     {
-       //collectableAnimationController.ChangeAnimation(_currentAnimation);
+      // collectableAnimationController.ChangeAnimation(_currentAnimation);
     }
     public void DeListStack()
     {
@@ -95,6 +101,19 @@ public class CollectableManager : MonoBehaviour
 
     public void ChangeOutlineState(bool _state)
     {
-       // collectableMeshController.ActivateOutline(_state);
+        collectableMeshController.ActivateOutline(_state);
+    }
+    
+    public async void SetCollectablePositionOnDroneArea(Transform groundTransform)
+    {
+        ChangeAnimationOnController(CollectableAnimationTypes.Run);
+        movementCommand.MoveToGround(groundTransform);
+        ChangeOutlineState(false);
+        await Task.Delay(3000);
+        
+    }
+    public void CheckColorType(DroneColorAreaManager _droneColorAreaManager)
+    {
+        collectableMeshController.CheckColorType(_droneColorAreaManager);
     }
 }

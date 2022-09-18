@@ -9,5 +9,5 @@ public class ScoreSignals : MonoSingleton<ScoreSignals>
     public UnityAction<ScoreTypes, ScoreVariableType> onChangeScore = delegate { };
     //public Func<ScoreVariableType, int> onGetScore = delegate { return 0; };
     
-   // public UnityAction onAddLevelTototalScore = delegate { };
+    public UnityAction onAddLevelTototalScore = delegate { };
 }
