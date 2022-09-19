@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStates
+public enum CameraStates
 {
-    Runner,
-    Roullette,
     Idle,
-    Failed
+    Runner,
+    StartState
 }

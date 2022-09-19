@@ -187,7 +187,7 @@ public class StackManager : MonoBehaviour
         if (stackList.Count == 0)
         {
            // SaveSignals.Instance.onChangeSaveData(SaveTypes.TotalColorman, 100);
-            CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Roulette);
+            CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Roullette);
         }
 
     }
