@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AddressableAssets;
 
 public class CollectableMeshController : MonoBehaviour
 {
     #region Self Variables
-
-    #region Public Variables
-
-
-    #endregion
-
     #region Serialized Variables
 
     [SerializeField]
@@ -20,15 +15,13 @@ public class CollectableMeshController : MonoBehaviour
     [SerializeField]
     private SkinnedMeshRenderer meshRenderer;
     #endregion
-
     #endregion
-
-
+    
     public void ChangeCollectableMaterial(ColorTypes _colorType)
     {
-
-        //var colorHandler = Addressables.LoadAssetAsync<Material>($"Collectable/Color_{_colorType}");
-        //meshRenderer.material = (colorHandler.WaitForCompletion() != null) ? colorHandler.Result : null;
+        
+        var colorHandler = Addressables.LoadAssetAsync<Material>($"Assets/Art/Materials/CollectableColorMaterials/{_colorType}");
+        meshRenderer.material = (colorHandler.WaitForCompletion() != null) ? colorHandler.Result : null;
     }
     public void CheckColorType(DroneColorAreaManager _droneColorAreaRef)
     {

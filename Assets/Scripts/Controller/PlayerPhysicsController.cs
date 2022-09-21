@@ -45,7 +45,7 @@ public class PlayerPhysicsController : MonoBehaviour
         }
         if (other.CompareTag("Portal"))
         {
-           // StackSignals.Instance.onColorChange?.Invoke(other.GetComponent<ColorController>().ColorType);
+            StackSignals.Instance.onColorChange?.Invoke(other.GetComponent<ColorController>().ColorType);
         }
     }
 

@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b28ed42cb260d468e66dadc36677d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentColorType: 0
+  CurrentColorType: 9
   MatchType: 0
   movementCommand: {fileID: 6098460502969859110}
   collectableMeshController: {fileID: 5080682071665261547}

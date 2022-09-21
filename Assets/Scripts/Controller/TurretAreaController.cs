@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class TurretAreaController : MonoBehaviour
 {
@@ -9,31 +10,15 @@ public class TurretAreaController : MonoBehaviour
     #region Public Variables
     public ColorTypes ColorType;
     public Vector3 CurrentTargetPos;
-
-
-
     #endregion
 
     #region Serialized Variables
-
     [SerializeField] private TurretAreaManager turretAreaManager;
-
-    [SerializeField]
-    private Transform turret;
-
-    [SerializeField]
-    private int turretSearchPeriod;
+    [SerializeField]private Transform turret;
+    [SerializeField] private int turretSearchPeriod;
     [SerializeField] MeshRenderer meshRenderer;
-
-
-
+    
     #endregion
-
-    #region Private Variables
-
-
-    #endregion
-
     #endregion
 
     private void Awake()
@@ -43,8 +28,8 @@ public class TurretAreaController : MonoBehaviour
 
     private void ChangeInitColor()
     {
-      //  var colorHandler = Addressables.LoadAssetAsync<Material>($"CoreColor/Color_{ColorType}");
-      //  meshRenderer.material = (colorHandler.WaitForCompletion() != null) ? colorHandler.Result : null;
+        var colorHandler = Addressables.LoadAssetAsync<Material>($"Assets/Art/Materials/CoreColorMaterials/{ColorType}");
+        meshRenderer.material = (colorHandler.WaitForCompletion() != null) ? colorHandler.Result : null;
     }
 
     public void GetRandomSearchPoint()
@@ -76,8 +61,5 @@ public class TurretAreaController : MonoBehaviour
     {
         CurrentTargetPos = _target.transform.position;
         RotateToTargetPos();
-
-
     }
-
 }

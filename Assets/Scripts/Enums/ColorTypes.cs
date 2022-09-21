@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ColorTypes
 {
+    
     Blue,
     Cream,
     DarkBlue,
