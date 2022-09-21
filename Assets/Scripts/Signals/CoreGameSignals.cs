@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class CoreGameSignals : MonoSingleton<CoreGameSignals>
 {
@@ -13,6 +14,8 @@ public class CoreGameSignals : MonoSingleton<CoreGameSignals>
     public UnityAction onLevelFailed = delegate { };
     public UnityAction onGameInitLevel = delegate { };
     public UnityAction onGameInit = delegate { };
+    public Func<int> onGetLevelID = delegate { return 0; };
+    public UnityAction onNextLevel = delegate { };
 
 
 
