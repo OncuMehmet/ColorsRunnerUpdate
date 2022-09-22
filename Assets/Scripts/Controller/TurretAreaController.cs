@@ -14,7 +14,7 @@ public class TurretAreaController : MonoBehaviour
 
     #region Serialized Variables
     [SerializeField] private TurretAreaManager turretAreaManager;
-    [SerializeField]private Transform turret;
+    [SerializeField] private Transform turret;
     [SerializeField] private int turretSearchPeriod;
     [SerializeField] MeshRenderer meshRenderer;
     
