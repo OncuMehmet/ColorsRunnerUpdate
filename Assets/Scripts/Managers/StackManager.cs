@@ -119,6 +119,7 @@ public class StackManager : MonoBehaviour
     private void OnInitRunAnimation()
     {
         OnChangeAnimationInStack(CollectableAnimationTypes.Run);
+        Debug.Log("RunANÝMATÝON");
     }
     private void OnChangeAnimationInStack(CollectableAnimationTypes _currentAnimation)
     {

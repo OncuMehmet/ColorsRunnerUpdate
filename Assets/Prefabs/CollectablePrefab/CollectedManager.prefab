@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 6098460502969859110}
   m_Layer: 0
   m_Name: CollectedManager
-  m_TagString: Collected
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   movementCommand: {fileID: 6098460502969859110}
   collectableMeshController: {fileID: 5080682071665261547}
   collectablePhysicsController: {fileID: 6098460504166476233}
-  collectableAnimationController: {fileID: 0}
+  collectableAnimationController: {fileID: 1051998154277531270}
   collider: {fileID: 747669544237229031}
 --- !u!114 &6098460502969859110
 MonoBehaviour:
@@ -835,9 +835,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5992229490397240709}
   - component: {fileID: 416723899225638911}
+  - component: {fileID: 1051998154277531270}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Collected
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -877,6 +878,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1051998154277531270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369071005516629823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dd477620b5c1c43ab254e7ecc10ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 416723899225638911}
 --- !u!1 &6604270575368987748
 GameObject:
   m_ObjectHideFlags: 0

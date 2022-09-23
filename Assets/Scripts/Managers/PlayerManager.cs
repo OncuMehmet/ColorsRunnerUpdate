@@ -148,7 +148,7 @@ public class PlayerManager : MonoBehaviour
     public void StopAllMovement()
     {
         playerMovementController.StopAllMovement();
-      //  ChangeAnimation(PlayerAnimationTypes.Idle);
+        ChangeAnimation(PlayerAnimationTypes.Idle);
     }
 
     public void StopVerticalMovement()
@@ -192,7 +192,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void ActivateMesh()
     {
-       // NewCameraSignals.Instance.onChangeCameraState.Invoke(CameraStates.StartOfIdle);
+        CameraSignals.Instance.onSetCameraState.Invoke(CameraStates.Idle);
         playerMeshController.ActiveMesh();
     }
 

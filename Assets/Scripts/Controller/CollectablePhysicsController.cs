@@ -58,7 +58,7 @@ public class CollectablePhysicsController : MonoBehaviour
             if (other.CompareTag("ColoredGround"))
             {
                 manager.DeListStack();
-                manager.SetCollectablePositionOnDroneArea(other.gameObject.transform);//ucu ayni fonksiyonda tetiklenecek
+                manager.SetCollectablePositionOnDroneArea(other.gameObject.transform);
                 manager.CheckColorType(other.GetComponent<DroneColorAreaManager>());
                 tag = "Untagged";
             }
@@ -84,5 +84,12 @@ public class CollectablePhysicsController : MonoBehaviour
         }
 
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TurretAreaGround"))
+        {
+            manager.ChangeAnimationOnController(CollectableAnimationTypes.Run);
 
+        }
+    }
 }

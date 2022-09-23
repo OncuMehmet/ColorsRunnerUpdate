@@ -51,7 +51,7 @@ public class CollectableManager : MonoBehaviour
 
     public void ChangeAnimationOnController(CollectableAnimationTypes _currentAnimation)
     {
-      // collectableAnimationController.ChangeAnimation(_currentAnimation);
+       collectableAnimationController.ChangeAnimation(_currentAnimation);
     }
     public void DeListStack()
     {

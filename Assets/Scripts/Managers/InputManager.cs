@@ -66,7 +66,6 @@ public class InputManager : MonoBehaviour
     private void UnSubscribeEvents()
     {
         CoreGameSignals.Instance.onGetGameState -= OnChangeInputType;
-        
         CoreGameSignals.Instance.onReset -= OnReset;
         _playerInput.Runner.MouseDelta.performed -= OnPlayerInputMouseDeltaPerformed;
         _playerInput.Runner.MouseDelta.canceled -= OnPlayerInputMouseDeltaCanceled;
@@ -108,11 +107,11 @@ public class InputManager : MonoBehaviour
 
     void OnMouseLeftButtonStart(InputAction.CallbackContext cntx)
     {
-        if (isFirstTimeTouchTaken == false)
+       if (isFirstTimeTouchTaken == false)
         {
             isFirstTimeTouchTaken = true;
             CoreGameSignals.Instance.onPlay?.Invoke();
-        }
+       }
     }
 
     private void OnPlayerInputJoyStickStart(InputAction.CallbackContext context)
