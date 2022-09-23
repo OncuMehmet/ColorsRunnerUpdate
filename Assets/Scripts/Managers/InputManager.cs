@@ -127,13 +127,15 @@ public class InputManager : MonoBehaviour
 
     private void OnPlayerInputJoyStickPerformed(InputAction.CallbackContext context)
     {
+        Debug.Log("joystick");
         _playerMovementValue = new Vector3(context.ReadValue<Vector2>().x, 0f, context.ReadValue<Vector2>().y);
         InputSignals.Instance.onIdleInputTaken?.Invoke(new IdleInputParams()
         {
+
             IdleXValue = _playerMovementValue.x * Data.IdleInputSpeed,
             IdleZValue = _playerMovementValue.z * Data.IdleInputSpeed
         });
-
+        Debug.Log("Sinyal sonrasýjoystick");
     }
     private void OnPlayerInputJoyStickCanceled(InputAction.CallbackContext context)
     {
@@ -157,7 +159,9 @@ public class InputManager : MonoBehaviour
         {
             case GameStates.Idle:
                 _playerInput.Runner.Disable();
+                
                 _playerInput.Idle.Enable();
+                Debug.Log("IDLE AÇILDI ");
                 break;
             case GameStates.Runner:
                 _playerInput.Idle.Disable();
@@ -169,8 +173,6 @@ public class InputManager : MonoBehaviour
         }
 
     }
-
-    
 
     private void OnReset()
     {

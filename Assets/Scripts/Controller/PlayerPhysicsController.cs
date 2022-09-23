@@ -63,6 +63,9 @@ public class PlayerPhysicsController : MonoBehaviour
                 playerManager.StopAllMovement();
                 playerManager.ActivateMesh();
                 _isEnteredRoullette = true;
+               
+                
+                
             }
 
         }

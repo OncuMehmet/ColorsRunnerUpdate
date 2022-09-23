@@ -70,7 +70,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 03b980d2e2f8c3442b98dee1239fea56
-    m_Address: PortalMaterials/extra/IdlePortal.mat
+    m_Address: Assets/Art/Materials/PortalMaterials/Rainbow
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: b13163ed9434fb840a27a797d7ead2f8
@@ -114,7 +114,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 60223e40f510c2246b42446276e3f562
-    m_Address: Assets/Art/Materials/CollectableColorMaterials/RainbowMaterial
+    m_Address: Assets/Art/Materials/CollectableColorMaterials/Rainbow
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: dcdb174f5eee1b948ba2d81c0391374b
@@ -175,6 +175,14 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: a9523721053ac1147afb4294436487c8
     m_Address: Assets/Art/Materials/CoreColorMaterials/Yellow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ae6c905d7980be949a6936c2a592186a
+    m_Address: Assets/Art/Materials/CollectableColorMaterials/Rainbow2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9871e974346974645a5651a03af71ea0
+    m_Address: Assets/Art/Materials/CollectableColorMaterials/Rainbow
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

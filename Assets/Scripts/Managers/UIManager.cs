@@ -121,7 +121,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateLevelText()
     {
-        leveltext.text = "Level " + (1 + CoreGameSignals.Instance.onGetLevelID?.Invoke()).ToString();
+        leveltext.text = "LEVEL " + (1 + CoreGameSignals.Instance.onGetLevelID?.Invoke()).ToString();
 
     }
     
@@ -165,6 +165,7 @@ public class UIManager : MonoBehaviour
     }
     public void EnterIdle()
     {
+        
         CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Idle);
         CameraSignals.Instance.onSetCameraState(CameraStates.Idle);
     }
