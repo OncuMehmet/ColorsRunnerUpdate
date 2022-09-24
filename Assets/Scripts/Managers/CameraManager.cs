@@ -48,6 +48,8 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
         CameraSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
         CoreGameSignals.Instance.onReset += OnReset;
+
+        CoreGameSignals.Instance.onLevelInitialize += OnPlay; //Level managerdan yazdým
        // LevelSignals.Instance.onNextLevel += OnNextLevel;
     }
 
@@ -57,7 +59,9 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
         CameraSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
         CoreGameSignals.Instance.onReset -= OnReset;
-       //LevelSignals.Instance.onNextLevel -= OnNextLevel;
+
+        CoreGameSignals.Instance.onLevelInitialize -= OnPlay; //Level managerdan yazdým
+      //LevelSignals.Instance.onNextLevel -= OnNextLevel;
     }
 
 

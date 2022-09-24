@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerMeshController playerMeshController;
     [SerializeField]
     private PlayerTextController playerTextController;
-    [SerializeField]
+    //[SerializeField]
     //private ColorTypes _currentColor;
 
     #endregion
@@ -165,24 +165,22 @@ public class PlayerManager : MonoBehaviour
         playerMeshController.IncreasePlayerSize();
     }
 
-    public void OnUpdateScoreText(List<int> _currentScores)
+    public void OnUpdateScoreText()
     {
         switch (_currentGameState)
         {
             case GameStates.Idle:
                 Debug.Log("Idle Scora gecti");
-             //   playerTextController.UpdatePlayerScore(_currentScores[0]);
+                playerTextController.UpdatePlayerScore(ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore));
                 break;
             case GameStates.Runner:
-              //  playerTextController.UpdatePlayerScore(_currentScores[1]);
+                playerTextController.UpdatePlayerScore(ScoreSignals.Instance.onGetScore(ScoreVariableType.LevelScore));
 
                 break;
             case GameStates.Failed:
                 CloseScoreText(true);
                 StopAllMovement();
-
                 break;
-
         }
 
     }
@@ -204,6 +202,6 @@ public class PlayerManager : MonoBehaviour
 
     public void CloseScoreText(bool _visiblitystate)
     {
-      //  playerTextController.CloseScoreText(_visiblitystate);
+        playerTextController.CloseScoreText(_visiblitystate);
     }
 }

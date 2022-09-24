@@ -108,6 +108,7 @@ public class StackManager : MonoBehaviour
     {
         _playerManager = FindObjectOfType<PlayerManager>().transform;
     }
+
     private void OnIncreaseStack(GameObject _currentGameObject)
     {
         ScoreSignals.Instance.onChangeScore(ScoreTypes.IncScore, ScoreVariableType.LevelScore);

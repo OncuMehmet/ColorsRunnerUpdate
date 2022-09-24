@@ -17,10 +17,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI leveltext;
     [SerializeField] private TextMeshProUGUI totalScore;
     [SerializeField] private IdlePanelController idlePanelController;
+    #endregion
+    #region private
+    private int _multiplerScore;
+    private int _levelScore;
 
     #endregion
     #endregion
-    
+
+
     private void Awake()
     {
         UpdateLevelText();
@@ -34,7 +39,7 @@ public class UIManager : MonoBehaviour
     private void SubscribeEvents()
     {
         CoreGameSignals.Instance.onGameInit += UpdateLevelText;
-        ScoreSignals.Instance.onUpdateScore += GetTotalScoreData;
+        ScoreSignals.Instance.onUpdateScore += UpdateScoreText; 
         UISignals.Instance.onOpenPanel += OnOpenPanel;
         UISignals.Instance.onClosePanel += OnClosePanel;
         CoreGameSignals.Instance.onPlay += OnPlay;
@@ -46,7 +51,7 @@ public class UIManager : MonoBehaviour
     private void UnsubscribeEvents()
     {
         CoreGameSignals.Instance.onGameInit -= UpdateLevelText;
-        ScoreSignals.Instance.onUpdateScore -= GetTotalScoreData;
+        ScoreSignals.Instance.onUpdateScore -= UpdateScoreText; // her binaya griþde burayý tetikle scorun azalcak 
         UISignals.Instance.onOpenPanel -= OnOpenPanel;
         UISignals.Instance.onClosePanel -= OnClosePanel;
         CoreGameSignals.Instance.onPlay -= OnPlay;
@@ -125,15 +130,18 @@ public class UIManager : MonoBehaviour
 
     }
     
-    public void GetTotalScoreData(List<int> ScoreValues)
-    {
-        string _currentTotalScore = ScoreValues[0].ToString();
-        UpdateTotalScore(_currentTotalScore);
-    }
+    //public void GetTotalScoreData(List<int> ScoreValues)
+    //{
+    //    string _currentTotalScore = ScoreValues[0].ToString();
+    //    UpdateTotalScore(_currentTotalScore);
+    //}
     
-    public void UpdateTotalScore(string _currentTotalScore)
+    public void UpdateScoreText()
     {
-        totalScore.text = _currentTotalScore;
+
+        int currentTotalScrore = ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore);
+        totalScore.text= currentTotalScrore.ToString();
+        
     }
     
     public void Play()
@@ -168,6 +176,12 @@ public class UIManager : MonoBehaviour
         
         CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Idle);
         CameraSignals.Instance.onSetCameraState(CameraStates.Idle);
+        _levelScore = ScoreSignals.Instance.onGetScore(ScoreVariableType.LevelScore);
+        _multiplerScore = _levelScore * 3; // burda deðiþiklik yapcak gelen deðere göre
+        ScoreSignals.Instance.onSetScore?.Invoke(ScoreVariableType.TotalScore,_multiplerScore);
+        UpdateScoreText();
+
+
     }
 
 }
