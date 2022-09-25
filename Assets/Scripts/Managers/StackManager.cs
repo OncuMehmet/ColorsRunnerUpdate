@@ -106,6 +106,7 @@ public class StackManager : MonoBehaviour
     
     private void FindPlayer()
     {
+       
         _playerManager = FindObjectOfType<PlayerManager>().transform;
     }
 
@@ -146,6 +147,7 @@ public class StackManager : MonoBehaviour
     {//deger datadan
         FindPlayer();
         OnChangeStack(initAmount);
+        Debug.Log("ONCHANGE STACK");
         StackSignals.Instance.onAnimationChange?.Invoke(CollectableAnimationTypes.Crouch);
     }
 

@@ -50,7 +50,7 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onReset += OnReset;
 
         CoreGameSignals.Instance.onLevelInitialize += OnPlay; //Level managerdan yazdým
-       // LevelSignals.Instance.onNextLevel += OnNextLevel;
+        CameraSignals.Instance.onNextlevelCameraInit += OnNextLevel;
     }
 
     private void UnsubscribeEvents()
@@ -61,7 +61,7 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onReset -= OnReset;
 
         CoreGameSignals.Instance.onLevelInitialize -= OnPlay; //Level managerdan yazdým
-      //LevelSignals.Instance.onNextLevel -= OnNextLevel;
+        CameraSignals.Instance.onNextlevelCameraInit += OnNextLevel;
     }
 
 

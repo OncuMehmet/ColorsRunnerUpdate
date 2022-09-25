@@ -26,6 +26,8 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         InitScoreValues();
+        _totalScore= SaveSignals.Instance.onRunnerGameLoad().Score; //Duruma göre bakýcam
+        print(_totalScore);
     }
 
     private void OnEnable()
@@ -148,7 +150,8 @@ public class ScoreManager : MonoBehaviour
     private void OnReset()
     {
         _levelScore = 0;
-       // ScoreSignals.Instance.onUpdateScore?.Invoke(_scoreVariables);
+        // ScoreSignals.Instance.onUpdateScore?.Invoke(_scoreVariables);
+        SaveSignals.Instance.onRunnerSaveData?.Invoke();
     }
 
     private void OnSetScore(ScoreVariableType scoreVariableType,int value)

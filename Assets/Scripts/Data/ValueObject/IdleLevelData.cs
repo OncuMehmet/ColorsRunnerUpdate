@@ -5,5 +5,6 @@ using System;
 
 [Serializable] public class IdleLevelData 
 {
-    public List<IdleBuildingData> IdleBuildingData;
+    
+    public List<CityData> CityData;
 }

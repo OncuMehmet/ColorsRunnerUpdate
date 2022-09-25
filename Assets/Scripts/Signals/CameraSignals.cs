@@ -7,4 +7,5 @@ public class CameraSignals : MonoSingleton<CameraSignals>
 {
     public UnityAction<CameraStates> onSetCameraState = delegate { };
     public UnityAction<CameraStates> onSetCameraTarget = delegate { };
+    public UnityAction onNextlevelCameraInit = delegate { };
 }

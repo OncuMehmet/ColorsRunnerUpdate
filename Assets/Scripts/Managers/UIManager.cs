@@ -157,6 +157,9 @@ public class UIManager : MonoBehaviour
         UISignals.Instance.onClosePanel?.Invoke(UIPanelTypes.IdlePanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.StartPanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.LevelPanel);
+        SaveSignals.Instance.onRunnerSaveData?.Invoke(); //savede 
+        SaveSignals.Instance.onIdleSaveData?.Invoke();//Savede
+        CameraSignals.Instance.onNextlevelCameraInit?.Invoke();  //kamera poziyonu için
     }
     public void RetryLevel()
     {
@@ -164,6 +167,7 @@ public class UIManager : MonoBehaviour
         UISignals.Instance.onClosePanel?.Invoke(UIPanelTypes.FailPanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.StartPanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.LevelPanel);
+        SaveSignals.Instance.onRunnerSaveData?.Invoke(); //savede 
 
     }
     public void RestartButton()
@@ -180,6 +184,7 @@ public class UIManager : MonoBehaviour
         _multiplerScore = _levelScore * 3; // burda deðiþiklik yapcak gelen deðere göre
         ScoreSignals.Instance.onSetScore?.Invoke(ScoreVariableType.TotalScore,_multiplerScore);
         UpdateScoreText();
+        ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore);
 
 
     }

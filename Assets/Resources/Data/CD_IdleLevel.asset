@@ -12,6 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edc8d80b1649e648b6cdbf5b473d6e0, type: 3}
   m_Name: CD_IdleLevel
   m_EditorClassIdentifier: 
-  IdleLevelListData:
-    IdleLevelData:
-    - IdleBuildingData: []
+  IdleLevel:
+    CityData:
+    - LevelNumber: 0
+      BuildingData:
+      - BuildingType: 1
+        mainBuildingData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 5
+          PayedAmount: 0
+        sideBuildindData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 5
+          PayedAmount: 0
+      - BuildingType: 0
+        mainBuildingData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 10
+          PayedAmount: 0
+        sideBuildindData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 5
+          PayedAmount: 0
+      - BuildingType: 2
+        mainBuildingData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
+        sideBuildindData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
+      - BuildingType: 3
+        mainBuildingData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
+        sideBuildindData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
+      - BuildingType: 4
+        mainBuildingData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
+        sideBuildindData:
+          BuildingName: 
+          CompleteState: 0
+          Price: 0
+          PayedAmount: 0
