@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         InitScoreValues();
-        _totalScore= SaveSignals.Instance.onRunnerGameLoad().Score; //Duruma göre bakýcam
+       // _totalScore= SaveSignals.Instance.onRunnerGameLoad().Score; //Duruma göre bakýcam
         print(_totalScore);
     }
 

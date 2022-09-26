@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
     
     private void Start()
     {
-       //_levelID = GetActiveLevel();
+      // _levelID = GetActiveLevel();
         OnInitializeIdleLevel();
     }
 
@@ -136,7 +136,7 @@ public class LevelManager : MonoBehaviour
     }
     private void OnClearActiveLevel()
     {
-        OnClearActiveIdleLevel();
+        //OnClearActiveIdleLevel();
         levelClearer.ClearActiveLevel(levelHolder.transform);
     }
     private void OnClearActiveIdleLevel()

@@ -29,7 +29,7 @@ public class CollectableMeshController : MonoBehaviour
             ? MatchType.Match
             : MatchType.UnMatched;
     }
-    public async void ActivateOutline(bool _isOutlineActive)
+    public void ActivateOutline(bool _isOutlineActive)
     {
         //await Task.Delay(2000);
         float _outlineValue = _isOutlineActive ? 71 : 0;

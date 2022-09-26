@@ -29,7 +29,7 @@ public class PlayerPhysicsController : MonoBehaviour
     {
         if (other.CompareTag("DroneArea"))
         {
-            playerManager.CloseScoreText(true);
+            playerManager.UpdateScoreText(true);
 
         }
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CD_Level
   m_EditorClassIdentifier: 
   LevelData:
-    LevelAmount: 1
+    LevelAmount: 2

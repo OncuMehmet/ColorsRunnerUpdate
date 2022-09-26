@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        UpdateLevelText();
+        OnUpdateLevelText();
     }
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        CoreGameSignals.Instance.onGameInit += UpdateLevelText;
+        CoreGameSignals.Instance.onGameInit += OnUpdateLevelText;
         ScoreSignals.Instance.onUpdateScore += UpdateScoreText; 
         UISignals.Instance.onOpenPanel += OnOpenPanel;
         UISignals.Instance.onClosePanel += OnClosePanel;
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     private void UnsubscribeEvents()
     {
-        CoreGameSignals.Instance.onGameInit -= UpdateLevelText;
+        CoreGameSignals.Instance.onGameInit -= OnUpdateLevelText;
         ScoreSignals.Instance.onUpdateScore -= UpdateScoreText; // her binaya griþde burayý tetikle scorun azalcak 
         UISignals.Instance.onOpenPanel -= OnOpenPanel;
         UISignals.Instance.onClosePanel -= OnClosePanel;
@@ -124,7 +124,7 @@ public class UIManager : MonoBehaviour
             .SetLoops(-1, LoopType.Yoyo));
     }
 
-    private void UpdateLevelText()
+    private void OnUpdateLevelText()
     {
         leveltext.text = "LEVEL " + (1 + CoreGameSignals.Instance.onGetLevelID?.Invoke()).ToString();
 
@@ -160,6 +160,7 @@ public class UIManager : MonoBehaviour
         SaveSignals.Instance.onRunnerSaveData?.Invoke(); //savede 
         SaveSignals.Instance.onIdleSaveData?.Invoke();//Savede
         CameraSignals.Instance.onNextlevelCameraInit?.Invoke();  //kamera poziyonu için
+        OnUpdateLevelText();
     }
     public void RetryLevel()
     {

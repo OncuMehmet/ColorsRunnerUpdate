@@ -21,7 +21,7 @@ public class PlayerTextController : MonoBehaviour
         playerScoreText.text = totalScore.ToString();
     }
 
-    public void CloseScoreText(bool _isClosed)
+    public void UpdateScoreText(bool _isClosed)
     {
         if (_isClosed)
         {

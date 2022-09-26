@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class DroneColorAreaManager : MonoBehaviour
 {
     #region Self Variables
-
     #region Public Variables
 
     public ColorTypes CurrentColorType;
@@ -22,10 +22,9 @@ public class DroneColorAreaManager : MonoBehaviour
     private List<GameObject> _tempList = new List<GameObject>();
     private MeshRenderer _meshRenderer;
     #endregion
-
     #endregion
 
-   
+    #region SubscribeEvents
 
     private void Awake()
     {
@@ -56,7 +55,6 @@ public class DroneColorAreaManager : MonoBehaviour
 
     private void OnSetColor()
     {
-        //renk gelecek _meshRenderer.material.color = Resources.Load<Material>("/Data/").color;
         droneAreaMeshController.ChangeAreaColor(CurrentColorType);
     }
 
@@ -64,4 +62,7 @@ public class DroneColorAreaManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onGameInit -= OnSetColor;
     }
-}
+
+    #endregion
+
+ }

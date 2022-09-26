@@ -70,6 +70,7 @@ public class PlayerManager : MonoBehaviour
         CoreGameSignals.Instance.onGetGameState += OnChangeGameState;
         PlayerSignals.Instance.onIncreaseScale += OnIncreaseSize;
         InputSignals.Instance.onSidewaysEnable += OnSidewaysEnable;
+        DroneAreaSignals.Instance.onDroneCheckCompleted += OnOpenScoreText;
 
         // PlayerSignal.Instance.onChangeVerticalSpeed += OnChangeVerticalSpeed;  Büyük ihtimal kullanmýycam
         //ScoreSignals.Instance.onUpdateScore += OnUpdateScore; Kullanmayabilirim
@@ -88,6 +89,7 @@ public class PlayerManager : MonoBehaviour
         CoreGameSignals.Instance.onGetGameState -= OnChangeGameState;
         PlayerSignals.Instance.onIncreaseScale -= OnIncreaseSize;
         InputSignals.Instance.onSidewaysEnable -= OnSidewaysEnable;
+        DroneAreaSignals.Instance.onDroneCheckCompleted -= OnOpenScoreText;
     }
 
     private void SendPlayerDataToMovementController() //BAKACAM BUNA TEKRAR
@@ -178,7 +180,7 @@ public class PlayerManager : MonoBehaviour
 
                 break;
             case GameStates.Failed:
-                CloseScoreText(true);
+                UpdateScoreText(true);
                 StopAllMovement();
                 break;
         }
@@ -200,8 +202,12 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    public void CloseScoreText(bool _visiblitystate)
+    public void UpdateScoreText(bool _visiblitystate)
     {
-        playerTextController.CloseScoreText(_visiblitystate);
+        playerTextController.UpdateScoreText(_visiblitystate);
+    }
+    public void OnOpenScoreText()
+    {
+        playerTextController.UpdateScoreText(false);
     }
 }
