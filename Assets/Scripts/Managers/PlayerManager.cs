@@ -25,19 +25,12 @@ public class PlayerManager : MonoBehaviour
     private PlayerMeshController playerMeshController;
     [SerializeField]
     private PlayerTextController playerTextController;
-    //[SerializeField]
-    //private ColorTypes _currentColor;
-
     #endregion
-
     #region Private Variables
 
     private PlayerData Data;
     private GameStates _currentGameState = GameStates.Runner;
-
-
     #endregion
-
     #endregion
 
     private void Awake()
@@ -71,10 +64,6 @@ public class PlayerManager : MonoBehaviour
         PlayerSignals.Instance.onIncreaseScale += OnIncreaseSize;
         InputSignals.Instance.onSidewaysEnable += OnSidewaysEnable;
         DroneAreaSignals.Instance.onDroneCheckCompleted += OnOpenScoreText;
-
-        // PlayerSignal.Instance.onChangeVerticalSpeed += OnChangeVerticalSpeed;  Büyük ihtimal kullanmýycam
-        //ScoreSignals.Instance.onUpdateScore += OnUpdateScore; Kullanmayabilirim
-
     }
 
     private void UnSubscribeEvents()
@@ -92,7 +81,7 @@ public class PlayerManager : MonoBehaviour
         DroneAreaSignals.Instance.onDroneCheckCompleted -= OnOpenScoreText;
     }
 
-    private void SendPlayerDataToMovementController() //BAKACAM BUNA TEKRAR
+    private void SendPlayerDataToMovementController() 
     {
         playerMovementController.SetMovementData(Data.PlayerMovementData);
     }
@@ -102,7 +91,6 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnReset()
     {
-        //OnUpdateScore(0); //HÝÇ KULLANMAYABÝLRÝÝM
         playerMovementController.OnReset();
     }
     private void OnLevelSuccessful()
@@ -200,8 +188,7 @@ public class PlayerManager : MonoBehaviour
     {
         playerAnimationController.ChangeAnimation(_animationType);
     }
-
-
+    
     public void UpdateScoreText(bool _visiblitystate)
     {
         playerTextController.UpdateScoreText(_visiblitystate);

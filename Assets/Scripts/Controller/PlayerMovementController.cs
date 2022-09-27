@@ -162,10 +162,4 @@ public class PlayerMovementController : MonoBehaviour
         transform.DOMove(new Vector3(_other.transform.position.x, transform.position.y, _other.transform.position.z + _other.transform.localScale.z * 2), 2f);
     }
     
-    //public void DisableStopVerticalMovement()
-    //{
-    //    _movementData.ForwardSpeed = 0;
-    //    rigidbody.angularVelocity = Vector3.zero;
-    //}
-
 }

@@ -135,7 +135,7 @@ public class StackManager : MonoBehaviour
     {
         for (int i = 0; i < stackList.Count; i++)
         {
-            // onreset ve ongame init initstacki iki kere  cagiriyor
+            
             stackList[i].transform.SetParent(null);
             Destroy(stackList[i]);
             ScoreSignals.Instance.onChangeScore(ScoreTypes.DecScore, ScoreVariableType.LevelScore);
@@ -190,8 +190,7 @@ public class StackManager : MonoBehaviour
         stackList.TrimExcess();
         if (stackList.Count == 0)
         {
-           // SaveSignals.Instance.onChangeSaveData(SaveTypes.TotalColorman, 100);
-            CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Roullette);
+           CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Roullette);
         }
 
     }

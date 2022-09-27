@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
     private void SubscribeEvents()
     {
         CoreGameSignals.Instance.onLevelInitialize += OnInitializeLevel;
-        //CoreGameSignals.Instance.onLevelIdleInitialize += OnInitializeIdleLevel;
+        
         CoreGameSignals.Instance.onClearActiveLevel += OnClearActiveLevel;
         CoreGameSignals.Instance.onNextLevel += OnNextLevel;
         CoreGameSignals.Instance.onReset += OnReset;
@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
     private void UnsubscribeEvents()
     {
         CoreGameSignals.Instance.onLevelInitialize -= OnInitializeLevel;
-       // CoreGameSignals.Instance.onLevelIdleInitialize -= OnInitializeIdleLevel;
+       
         CoreGameSignals.Instance.onClearActiveLevel -= OnClearActiveLevel;
         CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
         CoreGameSignals.Instance.onReset -= OnReset;
@@ -58,11 +58,7 @@ public class LevelManager : MonoBehaviour
         CoreGameSignals.Instance.onGetIdleLevelID -= OnGetIdleLevelID;
 
     }
-
-
-
-
-
+    
     private void OnDisable()
     {
         UnsubscribeEvents();
@@ -74,13 +70,7 @@ public class LevelManager : MonoBehaviour
         idleLevelLoader = GetComponent<IdleLevelLoaderCommand>();
         levelClearer = GetComponent<ClearActiveLevelCommand>();
     }
-
-    //private int GetActiveLevel()
-    //{
-
-    //   // return SaveSignals.Instance.onGetIntSaveData.Invoke(SaveTypes.Level);
-    //}
-
+    
     private int GetActiveIdleLevel()
     {
         return _idleLevelID;
@@ -88,30 +78,30 @@ public class LevelManager : MonoBehaviour
     
     private void Start()
     {
-      // _levelID = GetActiveLevel();
+      //_levelID = GetActiveLevel();
         OnInitializeIdleLevel();
     }
 
     private void OnNextLevel()
     {
         _levelID++;
-        // SaveSignals.Instance.onChangeSaveData?.Invoke(SaveTypes.Level, _levelID);
+        
         SaveSignals.Instance.onRunnerSaveData?.Invoke();
         CoreGameSignals.Instance.onReset?.Invoke();
     }
     private void OnNextIdleLevel()
     {
         _idleLevelID++;
-       // CoreGameSignals.Instance.onClearActiveIdleLevel?.Invoke(); // BUNU CIKARICAM BÜYÜK ÝHTÝMALLE
+       
         CoreGameSignals.Instance.onReset?.Invoke();
-        //SaveSignals.Instance.onChangeSaveData?.Invoke(SaveTypes.IdleLevel, _idleLevelID); //eski save 
+        
         CoreGameSignals.Instance.onLevelIdleInitialize?.Invoke();
     }
     private async void OnReset()
     {
         await Task.Delay(50);
         CoreGameSignals.Instance.onClearActiveLevel?.Invoke();
-        //SaveSignals.Instance.onChangeSaveData?.Invoke(SaveTypes.Level, _levelID);// eski SAve 
+        
         CoreGameSignals.Instance.onLevelInitialize?.Invoke();
         CoreGameSignals.Instance.onLevelIdleInitialize?.Invoke();
     }
@@ -136,7 +126,6 @@ public class LevelManager : MonoBehaviour
     }
     private void OnClearActiveLevel()
     {
-        //OnClearActiveIdleLevel();
         levelClearer.ClearActiveLevel(levelHolder.transform);
     }
     private void OnClearActiveIdleLevel()

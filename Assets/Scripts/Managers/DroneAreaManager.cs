@@ -54,13 +54,11 @@ public class DroneAreaManager : MonoBehaviour
             {
                 droneColorAreaManager.gameObject.transform.DOScaleZ(0,2.25f).OnComplete(() =>
                 {
-                    droneColorAreaManager.gameObject.transform.DOScaleX(0,0.5f); //deðiþebilirim süreyi
+                    droneColorAreaManager.gameObject.transform.DOScaleX(0,0.5f); 
                 });
             }
         }
-
     }
-
 
     private void OnDroneCheckCompleted()
     {
@@ -77,8 +75,5 @@ public class DroneAreaManager : MonoBehaviour
         await Task.Delay(200);
         droneColliderObject.SetActive(false);
     }
-
-
-
     #endregion
 }

@@ -62,10 +62,7 @@ public class TurretAreaManager : MonoBehaviour
             _currentTarget.GetComponent<CollectableManager>().DelayedDeath(true);
             StackSignals.Instance.onDecreaseStack(0);
             _turretState = _targetList.Count > 0 ? ChangeTurretState(TurretStates.Warned) : ChangeTurretState(TurretStates.Search);
-            //foreach (var turret in turretList) //kaldýrýcam büyük ihtimalle
-            //{
-            //  //  turret.FireTurretAnimation();
-            //}
+           
         }
 
     }
@@ -87,7 +84,7 @@ public class TurretAreaManager : MonoBehaviour
             float _relativeDistance = transform.position.z - _targetList[0].transform.position.z;
             if ((turretList[0].transform.localScale.z / 2) < _relativeDistance)
             {
-                Debug.Log("uzaklasti");
+               
                 ResetTurretArea();
             }
         }

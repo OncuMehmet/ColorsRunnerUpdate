@@ -40,30 +40,19 @@ public class ScoreManager : MonoBehaviour
     {
 
         ScoreSignals.Instance.onChangeScore += OnChangeScore;
-        CoreGameSignals.Instance.onChangeGameState += OnSendScoreToManagers;
         StackSignals.Instance.onStackInit += OnReset;
         //ScoreSignals.Instance.onAddLevelTototalScore += OnAddLevelToTotalScore;
         ScoreSignals.Instance.onGetScore += OnGetScore;
         ScoreSignals.Instance.onSetScore += OnSetScore;
-
-        // SaveSignals.Instance.onSendDataToManagers += InitTotalScoreData; Savede bakýcam
-        // SaveSignals.Instance.onApplicationPause += OnSendScoreToSave;
-
     }
 
     private void UnSubscribeEvents()
     {
         ScoreSignals.Instance.onChangeScore -= OnChangeScore;
-        CoreGameSignals.Instance.onChangeGameState -= OnSendScoreToManagers;
         StackSignals.Instance.onStackInit -= OnReset;
         //ScoreSignals.Instance.onAddLevelTototalScore -= OnAddLevelToTotalScore;
         ScoreSignals.Instance.onGetScore -= OnGetScore;
         ScoreSignals.Instance.onSetScore -= OnSetScore;
-
-
-        // SaveSignals.Instance.onSendDataToManagers -= InitTotalScoreData; Savede bakýcam
-        // SaveSignals.Instance.onApplicationPause -= OnSendScoreToSave;
-
     }
 
     private void OnDisable()
@@ -81,7 +70,6 @@ public class ScoreManager : MonoBehaviour
     
     private int OnGetScore(ScoreVariableType _scoreVarType)
     {
-        //return _scoreVariables[(int)_scoreVarType];
         switch (_scoreVarType)
         {
             case ScoreVariableType.TotalScore:
@@ -97,9 +85,7 @@ public class ScoreManager : MonoBehaviour
         }
         
     }
-
-  
-
+    
     private void OnChangeScore(ScoreTypes _scoreType, ScoreVariableType _scoreVarType) //deðiþiklik yaptým binalar burdan tetiklencek
     {
         switch (_scoreVarType)
@@ -144,13 +130,10 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
     }
-
     
-
     private void OnReset()
     {
         _levelScore = 0;
-        // ScoreSignals.Instance.onUpdateScore?.Invoke(_scoreVariables);
         SaveSignals.Instance.onRunnerSaveData?.Invoke();
     }
 
@@ -169,37 +152,4 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    //private void InitTotalScoreData(SaveData _saveData) //SAVEDE BAKICAM BUNA
-    //{
-    //    _scoreVariables[0] = _saveData.TotalColorman;
-    //    ScoreSignals.Instance.onUpdateScore?.Invoke(_scoreVariables);
-    //}
-    //private void OnChangeScore(ScoreTypes _scoreType, ScoreVariableType _scoreVarType) //deðiþiklik yaptým
-
-    //{
-    //    int _changedScoreValue = 0;
-    //    switch (_scoreType)
-    //    {
-    //        case ScoreTypes.DecScore:
-    //            _changedScoreValue--;
-    //            break;
-    //        case ScoreTypes.IncScore:
-    //            _changedScoreValue++;
-    //            break;
-    //        case ScoreTypes.DoubleScore:
-    //            _changedScoreValue += _scoreVariables[(int)_scoreVarType];
-    //            break;
-
-    //    }
-    //}
-
-    private void OnSendScoreToManagers(GameStates arg0)
-    {
-        //   ScoreSignals.Instance.onUpdateScore?.Invoke(_scoreVariables);
-    }
-
-    //private void OnAddLevelToTotalScore() //kaldýrýcam
-    //{
-    //    _scoreVariables[0] += _scoreVariables[1];
-    //}
 }

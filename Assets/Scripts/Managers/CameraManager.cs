@@ -48,8 +48,7 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onChangeGameState += OnChangeGameState;
         CameraSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
         CoreGameSignals.Instance.onReset += OnReset;
-
-        CoreGameSignals.Instance.onLevelInitialize += OnPlay; //Level managerdan yazdým
+        CoreGameSignals.Instance.onLevelInitialize += OnPlay; 
         CameraSignals.Instance.onNextlevelCameraInit += OnNextLevel;
     }
 
@@ -59,8 +58,7 @@ public class CameraManager : MonoBehaviour
         CoreGameSignals.Instance.onChangeGameState -= OnChangeGameState;
         CameraSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
         CoreGameSignals.Instance.onReset -= OnReset;
-
-        CoreGameSignals.Instance.onLevelInitialize -= OnPlay; //Level managerdan yazdým
+        CoreGameSignals.Instance.onLevelInitialize -= OnPlay; 
         CameraSignals.Instance.onNextlevelCameraInit += OnNextLevel;
     }
 
@@ -131,11 +129,4 @@ public class CameraManager : MonoBehaviour
     {
         CameraTargetSetting();
     }
-    
-    //public async void deneme()//KAMERE GEÇÝÞÝNÝ TEST ETTÝM
-    //{
-    //    await Task.Delay(5000);
-    //    CameraSignals.Instance.onSetCameraTarget?.Invoke(CameraStates.Idle);
-    //}
-    
 }

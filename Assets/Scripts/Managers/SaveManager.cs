@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    private void SubscribeEvents2()
-    {
-       // CoreGameSignals.Instance.onNextLevel += OnNextLevel;
-    }
-
     #region EventSubscribtion
     private void OnEnable()
     {
@@ -43,7 +38,7 @@ public class SaveManager : MonoBehaviour
         RunnerSaveGame(
             new SaveRunnerGameDataParams()
             {
-                Score = ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore),// bura bak
+                Score = ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore),
                 Level = SaveSignals.Instance.onGetRunnerLevelID(),
             }
         );

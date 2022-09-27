@@ -10,13 +10,11 @@ public class CollectablePhysicsController : MonoBehaviour
     [SerializeField]
     private CollectableManager manager;
     #endregion
-
     #endregion
 
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (CompareTag("Collected"))
         {
             
@@ -63,6 +61,7 @@ public class CollectablePhysicsController : MonoBehaviour
                 tag = "Untagged";
             }
         }
+
         if (other.CompareTag("Roulette"))
         {
             manager.DecreaseStackOnIdle();
@@ -82,7 +81,6 @@ public class CollectablePhysicsController : MonoBehaviour
 
             }
         }
-
     }
     private void OnTriggerExit(Collider other)
     {

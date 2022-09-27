@@ -7,11 +7,9 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     #region Self Variables
-
     #region Serialized Variables
 
     [SerializeField] private UIPanelController uiPanelController;
-
     [SerializeField] private RectTransform arrow;
     [SerializeField] private LevelPanelController levelPanelController;
     [SerializeField] private TextMeshProUGUI leveltext;
@@ -51,7 +49,7 @@ public class UIManager : MonoBehaviour
     private void UnsubscribeEvents()
     {
         CoreGameSignals.Instance.onGameInit -= OnUpdateLevelText;
-        ScoreSignals.Instance.onUpdateScore -= UpdateScoreText; // her binaya griþde burayý tetikle scorun azalcak 
+        ScoreSignals.Instance.onUpdateScore -= UpdateScoreText; 
         UISignals.Instance.onOpenPanel -= OnOpenPanel;
         UISignals.Instance.onClosePanel -= OnClosePanel;
         CoreGameSignals.Instance.onPlay -= OnPlay;
@@ -127,27 +125,17 @@ public class UIManager : MonoBehaviour
     private void OnUpdateLevelText()
     {
         leveltext.text = "LEVEL " + (1 + CoreGameSignals.Instance.onGetLevelID?.Invoke()).ToString();
-
     }
-    
-    //public void GetTotalScoreData(List<int> ScoreValues)
-    //{
-    //    string _currentTotalScore = ScoreValues[0].ToString();
-    //    UpdateTotalScore(_currentTotalScore);
-    //}
     
     public void UpdateScoreText()
     {
-
         int currentTotalScrore = ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore);
         totalScore.text= currentTotalScrore.ToString();
-        
     }
     
     public void Play()
     {
         CoreGameSignals.Instance.onPlay?.Invoke();
-
     }
 
     public void NextLevel()
@@ -157,9 +145,9 @@ public class UIManager : MonoBehaviour
         UISignals.Instance.onClosePanel?.Invoke(UIPanelTypes.IdlePanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.StartPanel);
         UISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.LevelPanel);
-        SaveSignals.Instance.onRunnerSaveData?.Invoke(); //savede 
-        SaveSignals.Instance.onIdleSaveData?.Invoke();//Savede
-        CameraSignals.Instance.onNextlevelCameraInit?.Invoke();  //kamera poziyonu için
+        SaveSignals.Instance.onRunnerSaveData?.Invoke();
+        SaveSignals.Instance.onIdleSaveData?.Invoke();
+        CameraSignals.Instance.onNextlevelCameraInit?.Invoke();
         OnUpdateLevelText();
     }
     public void RetryLevel()
@@ -178,16 +166,13 @@ public class UIManager : MonoBehaviour
     }
     public void EnterIdle()
     {
-        
         CoreGameSignals.Instance.onChangeGameState?.Invoke(GameStates.Idle);
         CameraSignals.Instance.onSetCameraState(CameraStates.Idle);
         _levelScore = ScoreSignals.Instance.onGetScore(ScoreVariableType.LevelScore);
-        _multiplerScore = _levelScore * 3; // burda deðiþiklik yapcak gelen deðere göre
+        _multiplerScore = _levelScore * 3; // Deðiþiklik yapablirim
         ScoreSignals.Instance.onSetScore?.Invoke(ScoreVariableType.TotalScore,_multiplerScore);
         UpdateScoreText();
         ScoreSignals.Instance.onGetScore(ScoreVariableType.TotalScore);
-
-
     }
 
 }

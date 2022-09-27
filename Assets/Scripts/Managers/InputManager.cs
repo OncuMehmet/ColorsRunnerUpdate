@@ -21,7 +21,6 @@ public class InputManager : MonoBehaviour
     #region Private Variables
 
     private PlayerInputSystem _playerInput;
-   // private bool _isTouching; 
     private float _currentVelocity; 
     private Vector3 _moveVector;
     private Vector3 _playerMovementValue;
